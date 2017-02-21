@@ -10,16 +10,17 @@ namespace ConsoleApplication24
     {
         public Point A;
         public Point B;
-        public double Dlina;
+
+        public double piece;
         public edge(Point a, Point b)
         {
             A = a;
             B = b;
         }
 
-        public void GetLength()
+        public double GetLength()
         {
-            Dlina = //формула длины отрезка;
+            return piece = Math.Sqrt(Math.Pow(B.X - A.X, 2) + Math.Pow(B.Y - A.Y, 2));
         }
     }
 }
