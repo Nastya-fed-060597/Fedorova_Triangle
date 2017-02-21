@@ -36,7 +36,7 @@ namespace ConsoleApplication24
             p = (AB.GetLength() + BC.GetLength() + CA.GetLength()) / 2;
             return Math.Sqrt((p * (p - AB.GetLength()) * (p - BC.GetLength()) * (p - CA.GetLength())));
         }
-        public string Equilateral()
+        public string Type()
         {
             edge AB = new edge(A, B);
             edge BC = new edge(B, C);

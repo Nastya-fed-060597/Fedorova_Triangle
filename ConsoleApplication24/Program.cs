@@ -15,7 +15,7 @@ namespace ConsoleApplication24
             var c = new Point(3, 6);
 
             Triangle ABC = new Triangle(a, b, c);
-            Console.WriteLine("Площадь = {0}, Периметр = {1}", ABC.Sqare(), ABC.Perimetr());
+            Console.WriteLine("Площадь = {0}, Периметр = {1}, Тип треугольника = {2}", ABC.Sqare(), ABC.Perimetr(), ABC.Type());
             Console.ReadLine();
 
         }
