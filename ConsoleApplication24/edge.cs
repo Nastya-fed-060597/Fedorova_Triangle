@@ -11,7 +11,6 @@ namespace ConsoleApplication24
         public Point A;
         public Point B;
 
-        public double piece;
         public edge(Point a, Point b)
         {
             A = a;
@@ -20,7 +19,7 @@ namespace ConsoleApplication24
 
         public double GetLength()
         {
-            return piece = Math.Sqrt(Math.Pow(B.X - A.X, 2) + Math.Pow(B.Y - A.Y, 2));
+            return Math.Sqrt(Math.Pow(B.X - A.X, 2) + Math.Pow(B.Y - A.Y, 2));
         }
     }
 }
