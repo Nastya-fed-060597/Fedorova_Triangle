@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication24
 {
-    
+    class
 }
