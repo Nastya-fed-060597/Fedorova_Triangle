@@ -42,19 +42,20 @@ namespace ConsoleApplication24
             edge BC = new edge(B, C);
             edge CA = new edge(C, A);
 
-            string temp = "";
-                if ((AB.GetLength() * AB.GetLength() + BC.GetLength() * BC.GetLength()) == (CA.GetLength() * CA.GetLength()) || (AB.GetLength() * AB.GetLength()) == (BC.GetLength() * BC.GetLength() + CA.GetLength() * CA.GetLength()) || (BC.GetLength() * BC.GetLength()) == (AB.GetLength() * AB.GetLength() + CA.GetLength() * CA.GetLength()))
-                    temp = "Прямоугольный, ";
+            string temp = "Обычный";
+            if ((AB.GetLength() * AB.GetLength() + BC.GetLength() * BC.GetLength()) == (CA.GetLength() * CA.GetLength()) || (AB.GetLength() * AB.GetLength()) == (BC.GetLength() * BC.GetLength() + CA.GetLength() * CA.GetLength()) || (BC.GetLength() * BC.GetLength()) == (AB.GetLength() * AB.GetLength() + CA.GetLength() * CA.GetLength()))
+            {
+                temp = "Прямоугольный";
+            }
                 if (AB.GetLength() == BC.GetLength() && BC.GetLength() == CA.GetLength())
                 {
-                    return temp + "Равносторонний";
+                    temp = "Равносторонний";
                 }
-                else if (AB.GetLength() == BC.GetLength() || BC.GetLength() == CA.GetLength() || AB.GetLength() == CA.GetLength())
+                if (AB.GetLength() == BC.GetLength() || BC.GetLength() == CA.GetLength() || AB.GetLength() == CA.GetLength())
                 {
-                    return temp + "Равнобедренный";
+                    temp = "Равнобедренный";
                 }
-                else
-                    return temp + "Обычный";
+                    return temp;
         }
 
 

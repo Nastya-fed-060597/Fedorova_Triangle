@@ -10,12 +10,31 @@ namespace ConsoleApplication24
     {
         static void Main(string [] args)
         {
-            var a = new Point(2, 4);
-            var b = new Point(5, 1);
-            var c = new Point(3, 6);
+            var n = new Triangle[100];
+            Random gen = new Random();
+            double P = 0;
+            double S = 0;
+            for (int i = 0; i < n.Length; i++)
+            {
+                var a = new Point(gen.Next(10), gen.Next(10));
+                var b = new Point(gen.Next(10), gen.Next(10));
+                var c = new Point(gen.Next(10), gen.Next(10));
 
-            Triangle ABC = new Triangle(a, b, c);
-            Console.WriteLine("Площадь = {0}, Периметр = {1}, Тип треугольника = {2}", ABC.Sqare(), ABC.Perimetr(), ABC.Type());
+                n[i] = new Triangle(a, b, c);
+                Console.WriteLine("Площадь = {0}, Периметр = {1}, Тип треугольника = {2}", n[i].Sqare(), n[i].Perimetr(), n[i].Type());
+                string t = n[i].Type();
+                if (t == "Прямоугольный")
+                {
+                    P = P + n[i].Perimetr();
+                }
+                if (t == "Равнобедренный")
+                {
+                    S = S + n[i].Sqare();
+                }
+            }
+
+            Console.WriteLine(P / n.Length);
+            Console.WriteLine(S / n.Length);
             Console.ReadLine();
 
         }
