@@ -21,7 +21,7 @@ namespace ConsoleApplication24
                 var c = new Point(gen.Next(10), gen.Next(10));
 
                 n[i] = new Triangle(a, b, c);
-                Console.WriteLine("Площадь = {0}, Периметр = {1}, Тип треугольника = {2}", n[i].Sqare(), n[i].Perimetr(), n[i].Type());
+                Console.WriteLine("Площадь = {0}, Периметр = {1}, Прямоугольный = {2}, Равносторонний = {3}, Равнобедренный = {4}", n[i].Sqare(), n[i].Perimetr(), n[i].IsRight(), n[i].IsEquilateral(), n[i].IsIsosceles());
                 string t = n[i].Type();
                 if (t == "Прямоугольный")
                 {

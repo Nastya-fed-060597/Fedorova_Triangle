@@ -36,28 +36,67 @@ namespace ConsoleApplication24
             p = (AB.GetLength() + BC.GetLength() + CA.GetLength()) / 2;
             return Math.Sqrt((p * (p - AB.GetLength()) * (p - BC.GetLength()) * (p - CA.GetLength())));
         }
-        public string Type()
+        
+        public bool IsRight()
+        {
+            edge AB = new edge(A, B);
+            edge BC = new edge(B, C);
+            edge CA = new edge(C, A);
+            if ((AB.GetLength() * AB.GetLength() + BC.GetLength() * BC.GetLength()) == (CA.GetLength() * CA.GetLength()) || (AB.GetLength() * AB.GetLength()) == (BC.GetLength() * BC.GetLength() + CA.GetLength() * CA.GetLength()) || (BC.GetLength() * BC.GetLength()) == (AB.GetLength() * AB.GetLength() + CA.GetLength() * CA.GetLength()))
+                return true;
+            else
+                return false;
+        }
+
+        public bool IsEquilateral()
+        {
+            edge AB = new edge(A, B);
+            edge BC = new edge(B, C);
+            edge CA = new edge(C, A);
+            if (AB.GetLength() == BC.GetLength() && BC.GetLength() == CA.GetLength())
+                return true;
+            else
+                return false;
+        }
+
+        public bool IsIsosceles()
+        {
+            edge AB = new edge(A, B);
+            edge BC = new edge(B, C);
+            edge CA = new edge(C, A);
+            if (AB.GetLength() == BC.GetLength() || BC.GetLength() == CA.GetLength() || AB.GetLength() == CA.GetLength())
+                {
+                    return true;
+                }
+                    return false;
+        }
+
+        private static bool Check(Point A, Point B, Point C)
         {
             edge AB = new edge(A, B);
             edge BC = new edge(B, C);
             edge CA = new edge(C, A);
 
-            string temp = "Обычный";
-            if ((AB.GetLength() * AB.GetLength() + BC.GetLength() * BC.GetLength()) == (CA.GetLength() * CA.GetLength()) || (AB.GetLength() * AB.GetLength()) == (BC.GetLength() * BC.GetLength() + CA.GetLength() * CA.GetLength()) || (BC.GetLength() * BC.GetLength()) == (AB.GetLength() * AB.GetLength() + CA.GetLength() * CA.GetLength()))
+            if ((AB.GetLength() + BC.GetLength() > CA.GetLength()) || (BC.GetLength() + CA.GetLength() > AB.GetLength()) || (AB.GetLength() + CA.GetLength() > BC.GetLength()))
             {
-                temp = "Прямоугольный";
+                return true;
             }
-                if (AB.GetLength() == BC.GetLength() && BC.GetLength() == CA.GetLength())
-                {
-                    temp = "Равносторонний";
-                }
-                if (AB.GetLength() == BC.GetLength() || BC.GetLength() == CA.GetLength() || AB.GetLength() == CA.GetLength())
-                {
-                    temp = "Равнобедренный";
-                }
-                    return temp;
+            else
+            {
+                return false;
+            }
         }
 
+        private class TriangleNotExistException : Exception
+        {
+            public string Messege
+            {
+                get
+                {
+                    return "Такой треугольник не может существовать!";
+                }
+            }
+        }
 
     }
 }
