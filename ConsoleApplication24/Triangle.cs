@@ -8,9 +8,9 @@ namespace ConsoleApplication24
 {
     class Triangle
     {
-        public Point A;
-        public Point B;
-        public Point C;
+        public Point A { get; set; }
+        public Point B { get; set; }
+        public Point C { get; set; }
 
         public Triangle(Point a, Point b, Point c)
         {

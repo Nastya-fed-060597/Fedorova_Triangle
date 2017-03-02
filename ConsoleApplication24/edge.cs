@@ -8,8 +8,9 @@ namespace ConsoleApplication24
 {
     class edge
     {
-        public Point A;
-        public Point B;
+   
+        public Point A { get; set;}
+        public Point B { get; set; }
 
         public edge(Point a, Point b)
         {
