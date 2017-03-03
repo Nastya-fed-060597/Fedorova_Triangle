@@ -21,15 +21,21 @@ namespace ConsoleApplication24
                 var c = new Point(gen.Next(10), gen.Next(10));
 
                 n[i] = new Triangle(a, b, c);
-                Console.WriteLine("Площадь = {0}, Периметр = {1}, Прямоугольный = {2}, Равносторонний = {3}, Равнобедренный = {4}", n[i].Sqare(), n[i].Perimetr(), n[i].IsRight(), n[i].IsEquilateral(), n[i].IsIsosceles());
-                string t = n[i].Type();
-                if (t == "Прямоугольный")
+                n[i].Check();
+                if (n[i].status == true)
                 {
-                    P = P + n[i].Perimetr();
-                }
-                if (t == "Равнобедренный")
-                {
-                    S = S + n[i].Sqare();
+
+
+                    Console.WriteLine("Площадь = {0}, Периметр = {1}, Прямоугольный = {2}, Равносторонний = {3}, Равнобедренный = {4}", n[i].Sqare(), n[i].Perimetr(), n[i].IsRight(), n[i].IsEquilateral(), n[i].IsIsosceles());
+
+                    if (n[i].IsRight() == true )
+                    {
+                        P = P + n[i].Perimetr();
+                    }
+                    if (n[i].IsIsosceles() == true)
+                    {
+                        S = S + n[i].Sqare();
+                    }
                 }
             }
 

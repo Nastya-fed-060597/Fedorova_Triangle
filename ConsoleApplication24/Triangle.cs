@@ -12,6 +12,9 @@ namespace ConsoleApplication24
         public Point B { get; set; }
         public Point C { get; set; }
 
+        public bool status { get; set; }
+        
+
         public Triangle(Point a, Point b, Point c)
         {
             A = a;
@@ -71,30 +74,17 @@ namespace ConsoleApplication24
                     return false;
         }
 
-        private static bool Check(Point A, Point B, Point C)
+        
+        public void Check()
         {
+            status = false;
             edge AB = new edge(A, B);
             edge BC = new edge(B, C);
             edge CA = new edge(C, A);
 
             if ((AB.GetLength() + BC.GetLength() > CA.GetLength()) || (BC.GetLength() + CA.GetLength() > AB.GetLength()) || (AB.GetLength() + CA.GetLength() > BC.GetLength()))
             {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        private class TriangleNotExistException : Exception
-        {
-            public string Messege
-            {
-                get
-                {
-                    return "Такой треугольник не может существовать!";
-                }
+                status = true;
             }
         }
 
